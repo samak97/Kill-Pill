@@ -6,6 +6,11 @@
     "main"
   ],
   "permissions": [
-    "core:default"
+    "core:default",
+    "core:window:allow-set-size",
+    "core:window:allow-start-dragging",
+    "autostart:default",
+    "autostart:allow-enable",
+    "autostart:allow-is-enabled"
   ]
 }

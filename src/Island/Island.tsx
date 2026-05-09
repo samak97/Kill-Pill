@@ -145,10 +145,8 @@ export const Island: React.FC = () => {
         const appWindow = getCurrentWebviewWindow();
 
         if (expanded) {
-          // Immediately expand height so the animation isn't clipped
           await appWindow.setSize(new LogicalSize(370, 250));
         } else {
-          // Wait for collapse animation to finish before shrinking height
           setTimeout(async () => {
             if (!expanded) {
               await appWindow.setSize(new LogicalSize(370, 80));
