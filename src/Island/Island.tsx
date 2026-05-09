@@ -293,6 +293,14 @@ export const Island: React.FC = () => {
         onClick={() => setExpanded((v) => !v)}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
       >
+        {/* Background Blur Kit - Moved here to cover full island area including padding */}
+        {expanded && (
+          <div className="bg-blur-kit">
+            <div className="blur-blob blob-1" style={{ background: themeColor }} />
+            <div className="blur-blob blob-2" style={{ background: themeColor }} />
+            <div className="blur-blob blob-3" style={{ background: themeColor }} />
+          </div>
+        )}
         <AnimatePresence mode="wait">
           {!expanded ? (
             <motion.div
