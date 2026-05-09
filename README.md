@@ -2,7 +2,8 @@
 
 A premium, standalone Dynamic Island for Windows. Inspired by iOS, built for performance and high-fidelity aesthetics.
 
-![Kill Pill Banner](https://github.com/user-attachments/assets/...) <!-- Placeholder for actual screenshot -->
+<img width="384" height="228" alt="20260509-1718-05 3550241" src="https://github.com/user-attachments/assets/b5d185c3-5b13-4cbf-ab8c-a502770c6ffa" />
+
 
 ## ✨ Features
 
