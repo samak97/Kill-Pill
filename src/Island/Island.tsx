@@ -3,6 +3,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { LogicalSize } from "@tauri-apps/api/dpi";
 import { motion, AnimatePresence } from "framer-motion";
+import { enable, isEnabled } from "@tauri-apps/plugin-autostart";
 import "./Island.css";
 
 export interface NotificationPayload {
@@ -105,6 +106,20 @@ export const Island: React.FC = () => {
   }, [isPlaying]);
 
   useEffect(() => {
+    // Enable startup on launch
+    const initAutostart = async () => {
+      try {
+        if (!(await isEnabled())) {
+          await enable();
+        }
+      } catch (err) {
+        console.error("Autostart init failed:", err);
+      }
+    };
+    initAutostart();
+  }, []);
+
+  useEffect(() => {
     const unlisten = listen<NotificationPayload>('notification_received', (event) => {
       console.log("Got notification:", event.payload);
       setNotification(event.payload);
@@ -126,12 +141,12 @@ export const Island: React.FC = () => {
   useEffect(() => {
     const updateSize = async () => {
       try {
-        const { getCurrentWindow } = await import("@tauri-apps/api/window");
-        const appWindow = getCurrentWindow();
+        const { getCurrentWebviewWindow } = await import("@tauri-apps/api/webviewWindow");
+        const appWindow = getCurrentWebviewWindow();
 
         if (expanded) {
           // Immediately expand height so the animation isn't clipped
-          await appWindow.setSize(new LogicalSize(370, 200));
+          await appWindow.setSize(new LogicalSize(370, 250));
         } else {
           // Wait for collapse animation to finish before shrinking height
           setTimeout(async () => {
@@ -223,12 +238,11 @@ export const Island: React.FC = () => {
       const deltaX = Math.abs(moveEvent.screenX - startX);
       const deltaY = Math.abs(moveEvent.screenY - startY);
 
-      // If moved more than 5 pixels, it's a drag
-      if (deltaX > 5 || deltaY > 5) {
+      if (deltaX > 3 || deltaY > 3) {
         window.removeEventListener('mousemove', handleMouseMove);
         try {
-          const { getCurrentWindow } = await import("@tauri-apps/api/window");
-          await getCurrentWindow().startDragging();
+          const { getCurrentWebviewWindow } = await import("@tauri-apps/api/webviewWindow");
+          await getCurrentWebviewWindow().startDragging();
         } catch (e) {
           console.error("Drag failed", e);
         }

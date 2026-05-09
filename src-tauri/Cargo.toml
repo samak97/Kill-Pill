@@ -27,3 +27,4 @@ rusqlite = { version = "0.29.0", features = ["bundled"] }
 windows = { version = "0.52", features = ["Media_Control", "Foundation", "Foundation_Collections", "UI_Notifications", "ApplicationModel", "Storage_Streams"] }
 tokio = { version = "1", features = ["full"] }
 base64 = "0.21"
+tauri-plugin-autostart = "2.5.1"

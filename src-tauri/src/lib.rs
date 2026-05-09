@@ -10,14 +10,20 @@ pub fn run() {
       commands::media::media_previous,
     ])
     .setup(|app| {
+      use tauri_plugin_autostart::MacosLauncher;
+      use tauri_plugin_autostart::ManagerExt;
+
+      let _ = app.handle().plugin(tauri_plugin_autostart::init(MacosLauncher::LaunchAgent, Some(vec!["--minimized"])));
+      
       let handle = app.handle().clone();
       commands::notifications::start_notification_listener(handle);
+      
       if cfg!(debug_assertions) {
-        app.handle().plugin(
+        let _ = app.handle().plugin(
           tauri_plugin_log::Builder::default()
             .level(log::LevelFilter::Info)
             .build(),
-        )?;
+        );
       }
       Ok(())
     })

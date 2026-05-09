@@ -6,6 +6,7 @@
       "name": "killpill",
       "dependencies": {
         "@tauri-apps/api": "^2.11.0",
+        "@tauri-apps/plugin-autostart": "^2.5.1",
         "framer-motion": "^12.38.0",
         "react": "^19.2.5",
         "react-dom": "^19.2.5",
@@ -138,6 +139,8 @@
     "@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.0-rc.7", "", {}, "sha512-qujRfC8sFVInYSPPMLQByRh7zhwkGFS4+tyMQ83srV1qrxL4g8E2tyxVVyxd0+8QeBM1mIk9KbWxkegRr76XzA=="],
 
     "@tauri-apps/api": ["@tauri-apps/api@2.11.0", "", {}, "sha512-7CinYODhky9lmO23xHnUFv0Xt43fbtWMyxZcLcRBlFkcgXKuEirBvHpmtJ89YMhyeGcq20Wuc47Fa4XjyniywA=="],
+
+    "@tauri-apps/plugin-autostart": ["@tauri-apps/plugin-autostart@2.5.1", "", { "dependencies": { "@tauri-apps/api": "^2.8.0" } }, "sha512-zS/xx7yzveCcotkA+8TqkI2lysmG2wvQXv2HGAVExITmnFfHAdj1arGsbbfs3o6EktRHf6l34pJxc3YGG2mg7w=="],
 
     "@tybys/wasm-util": ["@tybys/wasm-util@0.10.2", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-RoBvJ2X0wuKlWFIjrwffGw1IqZHKQqzIchKaadZZfnNpsAYp2mM0h36JtPCjNDAHGgYez/15uMBpfGwchhiMgg=="],
 
