@@ -2,7 +2,7 @@
 
 A premium, standalone Dynamic Island for Windows. Inspired by iOS, built for performance and high-fidelity aesthetics.
 
-<img width="384" height="228" alt="20260509-1718-05 3550241" src="https://github.com/user-attachments/assets/b5d185c3-5b13-4cbf-ab8c-a502770c6ffa" />
+<img width="556" height="338" alt="20260509-1759-13 2404166" src="https://github.com/user-attachments/assets/c3e0cdfc-4e63-4432-abea-4fc70d7ed8e6" />
 
 
 ## ✨ Features
