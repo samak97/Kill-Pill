@@ -137,6 +137,20 @@ export const Island: React.FC = () => {
     };
   }, []);
 
+  // Enable autostart on mount
+  useEffect(() => {
+    const initAutostart = async () => {
+      try {
+        if (!(await isEnabled())) {
+          await enable();
+        }
+      } catch (err) {
+        console.error("Autostart init failed", err);
+      }
+    };
+    initAutostart();
+  }, []);
+
   // Dynamic window resizing - Only animate height to prevent X-axis flickering
   useEffect(() => {
     const updateSize = async () => {
@@ -145,11 +159,12 @@ export const Island: React.FC = () => {
         const appWindow = getCurrentWebviewWindow();
 
         if (expanded) {
-          await appWindow.setSize(new LogicalSize(370, 250));
-        } else {
+          await appWindow.setSize(new LogicalSize(370, 190));
+        }
+        else {
           setTimeout(async () => {
             if (!expanded) {
-              await appWindow.setSize(new LogicalSize(370, 80));
+              await appWindow.setSize(new LogicalSize(370, 57));
             }
           }, 350);
         }

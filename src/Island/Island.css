@@ -123,9 +123,9 @@
   padding: 22px 24px;
   display: flex;
   flex-direction: column;
-  background: rgba(35, 39, 46, 0.85) !important;
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  background: rgba(35, 39, 46, 0.75) !important;
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
 }
 
 .expanded-view {
